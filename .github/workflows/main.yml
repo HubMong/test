@@ -2,8 +2,8 @@ name: Create Output File
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:  # 수동 실행도 가능하게 설정
 
 jobs:
   create-output:
