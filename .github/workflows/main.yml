@@ -1,0 +1,25 @@
+name: Create Output File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-output:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create output file
+        run: |
+          echo "Hello, GitHub Actions!" > output.txt
+          echo "This is a simple output file." >> output.txt
+
+      - name: Upload output file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-file
+          path: output.txt
